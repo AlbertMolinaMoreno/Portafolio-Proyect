@@ -8,5 +8,5 @@ export async function getAllGames () {
     }
 
   })
-  return (data)
+  return (data.results)
 }
