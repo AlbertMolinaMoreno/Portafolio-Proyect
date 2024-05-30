@@ -1,27 +1,23 @@
-const { DataTypes } = require('sequelize')
+const { DataTypes } = require('sequelize');
 const { connection } = require('../../database/index.js');
 
-const User = connection.define('user', {
-  username: {
+const Game = connection.define('game', {
+  title: {
     type: DataTypes.STRING, 
     allowNull: false,
     unique: true,
   },
-  email: {
+  description: {
     type: DataTypes.STRING, 
     allowNull: false,
-    unique: true,
-    validate: {
-      isEmail: true,
-    }
   },
-  password: {
+  genre: {
     type: DataTypes.STRING ,
     allowNull: false,
   },
-  role: {
-    type: DataTypes.ENUM('admin', 'user'), 
-    defaultValue: 'user'
+  image: {
+    type: DataTypes.STRING, 
+    allowNull: false
   }  
 },
   {
@@ -30,4 +26,4 @@ const User = connection.define('user', {
   });
 
 
-module.exports = User;
+module.exports = Game;
